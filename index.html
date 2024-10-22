@@ -61,7 +61,7 @@
         const deviceCategory = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile" : "Desktop";
 
         document.getElementById('navigateButton').addEventListener('click', function () {
-            window.location.href = 'https://www.google.co.in/';
+            location.reload();
         });
 
         const locationlink = window.location.href;
