@@ -121,7 +121,7 @@
                 user_longitude: position.coords.longitude,
                 user_ipaddress: ipAddress,
                 user_country: data.address?.country || "Unknown",
-                user_country_code: data.address?.country_code || "Unknown",
+                user_country_code: data.address?.country_code.toUpperCase() || "Unknown",
                 user_state: data.address?.state || "Unknown",
                 user_city: data.address?.city || data.address?.state_district,
                 user_pincode: data.address?.postcode || "Unknown",
